@@ -2,13 +2,14 @@
 
 //***********************************************************
 
-void USART_vdInit(uint_16 Baud_rate)
+void USART_vdInit(uint_32 Baud_rate)
 {
+	UCSRB |= (1 << RXEN) | (1 << TXEN);					/* Enable USART transmitter and receiver */
+	UCSRC |= (1 << URSEL)| (1 << UCSZ0) | (1 << UCSZ1);	/* Write USCRC for 8 bit data and 1 stop bit */
 	uint_8 USART_UBBR_VALUE = (F_CPU/(16*Baud_rate))-1;
-	UBRRH = (uint_8) USART_UBBR_VALUE <<8 ;
-	UBRRL = (uint_8) USART_UBBR_VALUE;
-	SET_BIT(UCSRC,URSEL) | SET_BIT (UCSRC,UCSZ0) | SET_BIT(UCSRC,UCSZ1); 
-	CLEAR_BIT(UCSRB,TXEN) | SET_BIT(UCSRB,RXEN);
+	UBRRH = (uint_8)  USART_UBBR_VALUE >> 8 ;
+	UBRRL = (uint_8)  USART_UBBR_VALUE;
+	
 	
 }
 
@@ -16,15 +17,14 @@ void USART_vdInit(uint_16 Baud_rate)
 
 void USART_vdTransmit (uint_8 data)
 {
- 
-	while ( BIT_IS_CLEAR(UCSRA,UDRE) );
-	UDR  = data;
+	while (!(UCSRA & (1<<UDRE)));					/* Wait until data transmit and buffer get empty */
+	UDR = data;
 }
 //**********************************************************
 uint_8 USART_u8Recieve()
-{
-	while ( BIT_IS_CLEAR(UCSRA,RXC) );
-	return UDR;
+{	
+	while (!(UCSRA & (1 << RXC)));					/* Wait until new data receive */
+	return(UDR);
 }
 
 
