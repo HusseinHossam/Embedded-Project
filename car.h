@@ -9,10 +9,9 @@
 #ifndef CAR_H_
 #define CAR_H_
 #include "motor.h"
-void PWM_vd_Car_Forward(uint_8  Duty_Cycle);
-void PWM_vd_Car_Reverse(uint_8  Duty_Cycle);
- void PWM_vd_Car_TurnRight(uint_8  Duty_Cycle);
- void PWM_vd_Car_TurnLeft(uint_8  Duty_Cycle);
- void PWM_vd_Car_stop();
+void PWM_vdCar_Forward( uint_8 Duty_Cycle );
+void PWM_vdCar_Reverse( uint_8  Duty_Cycle );
+void PWM_vdCar_Stop();
+
 
 #endif /* CAR_H_ */
