@@ -13,10 +13,6 @@
 #include "common_macros.h"
 #include "std_types.h"
 #include "car.h"
- void PWM_vd_Motor_init();
- void PWM_vd_Motor_Forward(uint_8 Motor , uint_8 Duty_Cycle);
- void PWM_vd_Motor_Reverse(uint_8 Motor , uint_8  Duty_Cycle);
-
-
-
+ void PWM_vdMotor_Init();
 #endif /* MOTOR_H_ */
+
