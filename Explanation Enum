@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef enum 
+{
+	Right  = 1, 
+	Corner = 2,
+	Back_Timer_1   = 3,
+	Front_Timer_1  = 4,
+	Front_Timer_2 = 5 
+	}Ultra_Sonics;
+Ultra_Sonics US;
+Ultra_Sonics US_1;
+
+void print(Ultra_Sonics y);
+void main()
+{
+	US = Right;
+	print(US);
+	US_1 = Corner;
+	print(US_1);
+
+}
+void print(Ultra_Sonics y )
+{
+	printf(" Right = %d\n", y);
+}
+		
