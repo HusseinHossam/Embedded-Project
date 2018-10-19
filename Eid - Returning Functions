@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+int sum (int x , int y );
+void mul (int sum );
+void main ()
+{
+	int x; 
+	int y; 
+	int z = 0;
+	printf("Enter x\n");
+	scanf("%d",&x);
+	printf("Enter y\n");
+	scanf("%d",&y);
+	z = sum(x,y);
+	printf("you are in main \n");
+	printf("%d\n",z);
+}
+		
+int sum (int x , int y)
+{
+	int sum = x+y;
+	mul(sum);
+	printf("you are in sum function\n");
+	return (sum);
+}
+void mul (int sum)
+{
+	if ( sum == 5)
+	{
+		return;
+	}
+}
