@@ -6,14 +6,28 @@
  */ 
 
 #include "Servo.h"
-#include "Timer0.h"
+#include "Timer2servo.h"
 
-void Servo_init(void)
+
+
+void Servo_vdInit(void)
 {
-	timer0_PWM_init();
+	timer2_PWM_init();
+}
+
+void Servo_vdSetangle (uint8 angle)
+{
+	float32 new_angle=((((float32)angle/18.0) + 2.5));
+	Timer2_set_dutycycle(new_angle); 
+}
+
+void Servo_vdOFF (void)
+{
+	Timer2_off(); 
 }
 
 
+/*
 void Servo_turn90(void)
 {
 	timer0_PWM_90();
@@ -57,4 +71,4 @@ void Servo_turn120(void)
 void Servo_turn135(void)
 {
 	timer0_PWM_135();
-}
+}*/

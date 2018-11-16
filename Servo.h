@@ -13,17 +13,10 @@
 #include "std_types.h"
 #include "common_macros.h"
 
+void Servo_vdInit(void);
+void Servo_vdSetangle (uint8 angle);
+void Servo_vdOFF (void);
 
-void Servo_init(void);
-void Servo_turn180(void);
-void Servo_turn90(void);
-void Servo_turn00(void);
-void Servo_turn60(void);
-void Servo_turn30(void);
-void Servo_turn45(void);
-void Servo_turn135(void);
-void Servo_turn120(void);
-void Servo_turn150(void);
 
 
 #endif /* SERVO_H_ */
