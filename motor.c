@@ -6,7 +6,7 @@
  */
 #include "motor.h"
 
-void PWM_vdMotor_Init() // initialization PWM function
+void PWM_vdMotorInit() // initialization PWM function
 {
 	/*	PWM configuration
 	*	FAST PWM 
