@@ -10,7 +10,7 @@
 #include "micro_config.h"
 #include "Ultrasonic.h"
 #include "Servo.h"
-#include "Motors.h"
+#include "Motor.h"
 typedef struct Flags
 {
 	union
